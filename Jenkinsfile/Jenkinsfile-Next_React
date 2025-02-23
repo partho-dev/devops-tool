@@ -9,7 +9,7 @@ pipeline {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "http://54.175.95.188:8081"
-        // DOCKER_REPO = 'http://54.175.95.188:8081/repository/erg-docker-hosted-repo'
+        // DOCKER_REPO = 'http://54.175.95.188:8081/repository/lia-docker-hosted-repo'
         DOCKER_REPO = 'http://54.175.95.188:8092'
         // DOCKER_CREDENTIALS_ID = 'nexus-docker-creds'
         NEXUS_CREDENTIAL_ID = "jenkins-user-on-nexus"

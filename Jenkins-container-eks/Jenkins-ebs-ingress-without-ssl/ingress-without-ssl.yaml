@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jenkins-ingress
+  namespace: lia-ns-jenkins
+  annotations:
+    # cert-manager.io/cluster-issuer: letsencrypt # If nginx inngress controller is used
+    # alb.ingress.kubernetes.io/certificate-arn: aws-cert-mgr-arn  # If aws certmanager is used for ingress
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/healthcheck-path: /login
+    alb.ingress.kubernetes.io/group.name: "shared-ingress-group"
+spec:
+  ingressClassName: alb
+  # ingressClassName: nginx #For nginx controller
+  rules:
+  - host: lia-jenkins.liastaging.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: jenkins-service
+            port:
+              number: 8080

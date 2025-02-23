@@ -17,7 +17,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo "<=======Checking out the Source Code===========>"
-                git branch: 'feature/pattern', credentialsId: 'erg-bitbucket-app-password', url: 'https://bitbucket.org/ergonnex/erg-pattern-app-python-django-fe'
+                git branch: 'feature/pattern', credentialsId: 'lia-bitbucket-app-password', url: 'https://bitbucket.org/lia/lia-pattern-app-python-django-fe'
             }
         }
 

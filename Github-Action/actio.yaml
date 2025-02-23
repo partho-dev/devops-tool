@@ -1,0 +1,21 @@
+name: CI Pipeline                                    # Name of the workflow
+
+on:                                                  # Trigger
+  push:                                              # Trigger type 
+    branches:
+      - main
+
+jobs:                                                 # Jobs
+  build:                                              # Jobs-1 (Build Job)
+    runs-on: ubuntu-latest                            # Runner
+    steps:                                            # Steps
+      - name: Checkout Code                           # Step-1
+        uses: actions/checkout@v3                     # Action - from marketplace
+
+      - name: Install Dependencies                    # Step -2
+        run: npm install                              # Manual run
+
+        env:                                          # Pass Environment variable
+              SONAR_TOKEN: ${{secrets.SONAR_TOKEN }}  # Context , secret context
+             
+

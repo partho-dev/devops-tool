@@ -1,0 +1,30 @@
+#Kubernetes
+apiversion:
+kind:
+metadata:
+spec:
+
+#AzurePipeline:
+trigger:
+pool:
+stages:
+
+# GitHubAction 
+name: "Github Action Pipeline"
+# on: [push, workflow_dispatch]
+on:
+  push:
+    branches:
+      - feat/login
+    path-ignore:
+      - '.github/workflows/*'
+      - *.md
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: 'ubuntu'
+    steps: 
+      - name: Checkout the code
+        uses: 
+
+

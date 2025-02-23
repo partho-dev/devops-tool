@@ -1,0 +1,81 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lia-ns-jenkins
+
+# Create PVC for Jenkins data
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jenkins-pvc-efs
+  namespace: lia-ns-jenkins
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: efs
+
+# Jenkins deployment
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-deployment
+  namespace: lia-ns-jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - name: jenkins
+        image: jenkins/jenkins:lts
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: jenkins-volume
+          mountPath: /var/jenkins_home
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "3Gi"
+            cpu: "1500m"
+        securityContext:
+          runAsUser: 1000 # The default user Jenkins runs as in the container
+          runAsGroup: 1000 # The group Jenkins uses
+      volumes:
+      - name: jenkins-volume
+        persistentVolumeClaim:
+          claimName: jenkins-pvc-efs
+
+# Jenkins service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins-service
+  namespace: lia-ns-jenkins
+  labels:
+    app: jenkins
+spec:
+  type: ClusterIP # We are using awsLB as NLB for external with nginx ingress
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  selector:
+    app: jenkins
