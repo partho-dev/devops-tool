@@ -1,7 +1,4 @@
 
-https://docs.google.com/spreadsheets/d/1P64yLVrXvCfpCx-0KFwcCcbQU2aD-6df/edit?gid=2073752426#gid=2073752426
-
-
 **Performance Metrics for Monitoring Web Applications**
 - Monitoring the performance and health of a web application involves understanding key metrics collected from servers, 
     - networks, 
