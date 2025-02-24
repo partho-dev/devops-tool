@@ -30,87 +30,87 @@ https://docs.google.com/spreadsheets/d/1P64yLVrXvCfpCx-0KFwcCcbQU2aD-6df/edit?gi
 
 `2.` **Server Metrics**
 - CPU Utilization:
-o	Percentage of CPU resources currently in use.
-o	Key threshold: Should ideally stay below 85%.
+    - Percentage of CPU resources currently in use.
+    - Key threshold: Should ideally stay below 85%.
 - Memory Usage:
-o	Amount of RAM in use by applications or processes.
-o	Threshold: Leave enough buffer to avoid memory swaps.
+    - Amount of RAM in use by applications or processes.
+    - Threshold: Leave enough buffer to avoid memory swaps.
 - Disk I/O:
-o	The rate of reading/writing operations to the disk.
-o	Measured in Input/Output Operations Per Second (IOPS).
+    - The rate of reading/writing operations to the disk.
+    - Measured in Input/Output Operations Per Second (IOPS).
 - Disk Space Utilization:
-o	Percentage of disk storage used.
-o	Threshold: Ensure at least 15-20% free space.
+    - Percentage of disk storage used.
+    - Threshold: Ensure at least 15-20% free space.
 - Network Bandwidth:
-o	Amount of data transmitted/received over the network.
-o	Measured in Mbps or Gbps.
+    - Amount of data transmitted/received over the network.
+    - Measured in Mbps or Gbps.
 - Network Latency:
-o	Time taken for data packets to travel from source to destination.
-o	Measured in ms.
+    - Time taken for data packets to travel from source to destination.
+    - Measured in ms.
 - Connection Count:
-o	Number of active connections to the server.
+    - Number of active connections to the server.
  
 `3.` **Kubernetes Metrics**
 - Pod Resource Usage:
-o	CPU and Memory usage of individual pods.
+    - CPU and Memory usage of individual pods.
 - Replica Health:
-o	Number of replicas available vs. desired replicas.
+    - Number of replicas available vs. desired replicas.
 - Pod Restarts:
-o	Frequency of pod restarts (may indicate issues with container stability).
+    - Frequency of pod restarts (may indicate issues with container stability).
 - Node Utilization:
-o	CPU, memory, and disk usage at the node level.
+    - CPU, memory, and disk usage at the node level.
 - Control Plane Latency:
-o	Latency in Kubernetes API calls.
+    - Latency in Kubernetes API calls.
 - Container Disk I/O:
-o	Read/write operations performed by containers.
+    - Read/write operations performed by containers.
  
 `4.` **Database Metrics**
 - Query Latency:
-o	Time taken to execute a database query.
+    - Time taken to execute a database query.
 - Connections:
-o	Number of active connections to the database.
+    - Number of active connections to the database.
 - Cache Hit Ratio:
-o	Percentage of queries served from the cache vs. total queries.
-o	Ideal ratio: >95%.
+    - Percentage of queries served from the cache vs. total queries.
+    - Ideal ratio: >95%.
 - Locks/Deadlocks:
-o	Number of queries waiting for locks or encountering deadlocks.
+    - Number of queries waiting for locks or encountering deadlocks.
 - Replication Lag:
-o	Time delay between the primary and replica databases.
+    - Time delay between the primary and replica databases.
  
 `5.` **Firewall/Gateway Metrics**
 - Active Sessions:
-o	Number of concurrent sessions handled by the firewall.
+    - Number of concurrent sessions handled by the firewall.
 - Traffic Throughput:
-o	Volume of traffic passing through the firewall.
-o	Measured in Mbps or Gbps.
+    - Volume of traffic passing through the firewall.
+    - Measured in Mbps or Gbps.
 - Blocked Requests:
-o	Number of requests blocked due to security rules.
+    - Number of requests blocked due to security rules.
 - Packet Drops:
-o	Percentage of packets dropped by the firewall.
+    - Percentage of packets dropped by the firewall.
  
 `6.` **Cloud-Specific Metrics**
 ***AWS CloudWatch:***
 - CPU Credit Balance (Burstable Instances):
-o	Indicates if burstable EC2 instances can sustain high CPU usage.
+    - Indicates if burstable EC2 instances can sustain high CPU usage.
 - Request Count (ELB):
-o	Number of requests processed by a load balancer.
+    - Number of requests processed by a load balancer.
 - 4xx/5xx Errors:
-o	Count of client/server errors at the load balancer.
+    - Count of client/server errors at the load balancer.
 - Read/Write Latency (RDS):
-o	Latency of database read/write operations.
+    - Latency of database read/write operations.
 ***Azure Monitor:***
 - DTU Utilization (SQL Database):
-o	Database Transaction Units used vs. provisioned.
+    - Database Transaction Units used vs. provisioned.
 - Throttled Requests (Storage):
-o	Number of requests throttled due to resource limits.
+    - Number of requests throttled due to resource limits.
  
 `7.` **Monitoring Tools and Dashboards**
 - Prometheus/Grafana:
-o	Ideal for custom metrics and visualizations for both Kubernetes and bare-metal servers.
+    - Ideal for custom metrics and visualizations for both Kubernetes and bare-metal servers.
 - Datadog/New Relic:
-o	Comprehensive application performance monitoring (APM) tools.
+    - Comprehensive application performance monitoring (APM) tools.
 - Cloud-Native Services:
-o	AWS CloudWatch, Azure Monitor, Google Cloud Operations.
+    - AWS CloudWatch, Azure Monitor, Google Cloud Operations.
  
 **Best Practices for Monitoring**
 1.	Set Alerts: Define thresholds for critical metrics to trigger notifications.
@@ -118,6 +118,3 @@ o	AWS CloudWatch, Azure Monitor, Google Cloud Operations.
 3.	Automate Scaling: Use metrics to trigger auto-scaling actions.
 4.	Enable Logging: Correlate logs with metrics for deeper insights.
 5.	Analyze Trends: Regularly review trends to predict and prevent potential issues.
- 
-This comprehensive set of metrics ensures you can effectively monitor and troubleshoot web application performance. Tailor your dashboards and alerts based on these categories to maintain a healthy and performant system.
-
