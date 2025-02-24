@@ -2,28 +2,33 @@
 https://docs.google.com/spreadsheets/d/1P64yLVrXvCfpCx-0KFwcCcbQU2aD-6df/edit?gid=2073752426#gid=2073752426
 
 
-Performance Metrics for Monitoring Web Applications
-Monitoring the performance and health of a web application involves understanding key metrics collected from servers, networks, databases, and other infrastructure components. Below is a detailed breakdown of essential metrics and their meanings across different layers of your application stack:
+**Performance Metrics for Monitoring Web Applications**
+- Monitoring the performance and health of a web application involves understanding key metrics collected from servers, 
+    - networks, 
+    - databases, and 
+    - other infrastructure components. 
+    
+- Below is a detailed breakdown of essential metrics and their meanings across different layers of an application stack:
  
-1. General Application Performance Metrics
-•	Response Time (Latency):
-o	Time taken by the server to process a request and send a response.
-o	Measured in milliseconds (ms) or seconds (s).
-•	Throughput:
-o	The number of requests processed by the server per second.
-o	Measured in requests per second (RPS).
-•	Error Rate:
-o	Percentage of requests that result in an error (e.g., 4xx or 5xx HTTP codes).
-o	Formula: (Total errors / Total requests) * 100.
-•	Saturation:
-o	Degree to which system resources (CPU, memory, etc.) are utilized.
-•	Capacity Unit:
-o	A combined measure of CPU utilization, concurrent connections, and network throughput. 
-	Example: 1 Capacity Unit = 1 CPU core OR 2.5K concurrent connections OR 2.25 Mbps throughput.
+ `1.`**General Application Performance Metrics**
+- Response Time (Latency):
+    - Time taken by the server to process a request and send a response.
+    - Measured in milliseconds (ms) or seconds (s).
+- Throughput:
+    - The number of requests processed by the server per second.
+    - Measured in requests per second (RPS).
+- Error Rate:
+    - Percentage of requests that result in an error (e.g., 4xx or 5xx HTTP codes).
+    - Formula: (Total errors / Total requests) * 100.
+- Saturation:
+    - Degree to which system resources (CPU, memory, etc.) are utilized.
+- Capacity Unit:
+    - A combined measure of `CPU utilization`, `concurrent connections`, and `network throughput`. 
+    - `Example`: 1 Capacity Unit = 1 CPU core OR 2.5K concurrent connections OR 2.25 Mbps throughput.
 
  
 
-2. Server Metrics
+`2.` **Server Metrics**
 •	CPU Utilization:
 o	Percentage of CPU resources currently in use.
 o	Key threshold: Should ideally stay below 85%.
